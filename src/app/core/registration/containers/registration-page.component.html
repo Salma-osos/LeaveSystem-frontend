@@ -1,0 +1,20 @@
+<div class="registration-wrapper">
+  <h2>Create an Account</h2>
+
+  <!-- Status Alerts -->
+  <div *ngIf="errorMessage()" class="alert alert-danger" role="alert">
+    <span>⚠️</span>
+    <span>{{ errorMessage() }}</span>
+  </div>
+  
+  <div *ngIf="successMessage()" class="alert alert-success" role="alert">
+    <span>✅</span>
+    <span>{{ successMessage() }}</span>
+  </div>
+
+  <!-- Dumb Component Integration -->
+  <app-registration-form 
+    [isLoading]="isLoading()" 
+    (formSubmitted)="handleFormSubmit($event)">
+  </app-registration-form>
+</div>
